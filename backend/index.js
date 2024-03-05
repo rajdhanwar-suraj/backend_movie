@@ -8,7 +8,11 @@ require('dotenv').config();
 const app = express();
 const PORT = process.env.PORT
 
-app.use(cors());
+// Specify allowed origins
+app.use(cors({
+  origin: ['http://localhost:3000', 'https://your-production-domain.com'],
+}));
+
 app.use(express.json());
 
 // API to render html file
@@ -27,6 +31,10 @@ mongoose
   .catch((err) => {
     console.log(err.message);
   });
+
+// Handle CORS preflight requests for all routes
+app.options('*', cors());
+
 
 app.use("/api/user", userRoutes);
 
