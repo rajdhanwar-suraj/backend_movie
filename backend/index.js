@@ -10,6 +10,11 @@ const PORT = process.env.PORT
 app.use(cors());
 app.use(express.json());
 
+// API to render html file
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "/index.html"));
+});
+
 mongoose
   .connect(process.env.MONGODB_URI, {
     useNewUrlParser: true,
