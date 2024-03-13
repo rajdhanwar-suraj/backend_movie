@@ -10,7 +10,7 @@ const PORT = process.env.PORT
 
 // Specify allowed origins
 app.use(cors({
-  origin: ['http://localhost:3000', 'https://frontend-movie-brown.vercel.app/'],
+  origin: ['http://localhost:3000', 'https://frontend-movie-brown.vercel.app'],
 }));
 
 app.use(express.json());
